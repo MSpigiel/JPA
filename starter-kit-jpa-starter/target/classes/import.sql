@@ -1,0 +1,31 @@
+INSERT INTO department VALUES (NULL, null,null , 0, "Sales", "aa@b.pl", "1211", "1222"), (NULL, null, null, 0,   "Support", "ab@b.pl", "1121", "2212"), (NULL, null, null, 0, "Information Technology", "ac@b.pl", "1131", "2232"), (NULL, null, null, 0,   "Human Resources", "ad@b.pl", "1411", "2242");
+--
+--INSERT INTO function VALUES (NULL, "PL", 6000), (NULL, "TCD", 4500), (NULL, "FCD", 3500), (NULL, "DEV", 2500);
+--
+--INSERT INTO employee VALUES (NULL, "Ryszard", "Nowak", 95050382832, '1993-02-02', 1, 1),
+--(NULL, "Zenon", "Gorski", 87022311832, '1968-01-03', 1, 1), 
+--(NULL, "Franciszek", "Odra", 88150122812, '1956-12-12', 2, 1),
+--(NULL, "Zygmunt", "Wisla", 92221082262, '1951-03-03', 3, 1),
+--(NULL, "Bogdan", "Karasek", 91232453122, '1992-06-04', 4, 1),
+--(NULL, "Teofil", "Osikowicz", 91020301001, '1983-11-02', 1, 1),
+--(NULL, "Gustaw", "Polanski", 88052345332, '1990-11-22', 2, 1),
+--(NULL, "Tadeusz", "Kowalczyk", 78045643212, '1969-05-12', 3, 1),
+--(NULL, "Rajmund", "Nowakowski", 95099877221, '1981-12-12', 4, 1),
+--(NULL, "Bonifacy", "Nowacki", 88213123123, '1961-05-06', 1, 1),
+--(NULL, "Krystyna", "Psikuta", 89723468192, '1991-07-08', 1, 1),
+--(NULL, "Karyna", "Kowalska", 78120312332, '1983-05-09', 1, 1),
+--(NULL, "Ryszarddd", "Nowakkkk", 95050382831, '1993-02-02', NULL, 1);
+--
+--INSERT INTO project VALUES (NULL, "Book E-Store", 1, 1),
+--(NULL, "Food delivery portal", 1, 11), (NULL, "Newspaper web service", 0, 12);
+--
+--
+--INSERT INTO assignment VALUES (NULL, 1, 1, 1, '2016-06-05', null), (NULL, 1, 2, 2, '2011-02-15', null), 
+--(NULL, 2, 3, 3, '2012-03-02', null), (NULL, 3, 4, 4, '2013-04-13', null), (NULL, 1, 5, 2, '2014-01-24', null), 
+--(NULL, 2, 6, 3, '2011-05-12', null), (NULL, 3, 7, 4, '2012-06-11', null), (NULL, 1, 8, 2, '2013-06-26', null),
+--(NULL, 1, 9, 3, '2014-07-15', null), (NULL, 1, 10, 4, '2017-01-25', null), (NULL, 2, 11, 1, '2014-01-11', null), 
+--(NULL, 3, 12, 1, '2015-02-15', null), (NULL, 2, 3, 2, '2016-02-05', '2016-03-01'), (NULL, 1, 3, 1, '2016-01-01', '2016-02-01'), 
+--(NULL, 1, 3, 1, '2016-01-01', null), (NULL, 2, 2, 1, '2016-06-01', '2016-07-01'), (NULL, 2, 2, 4, '2010-06-05', '2010-09-05'),
+--(NULL, 2, 2, 2, '2016-08-05', '2016-09-01'), (NULL, 1, 9, 1, '2016-07-01', '2016-09-01'), (NULL, 1, 9, 1, '2011-07-01', '2011-09-01'), 
+--(NULL, 1, 9, 1, '2017-07-01', '2017-09-01'), (NULL, 1, 9, 1, '2016-01-01', '2016-09-01'), (NULL, 1, 9, 1, '2016-07-01', '2017-09-01'),
+--(NULL, 1, 12, 1, '2016-02-15', null);
