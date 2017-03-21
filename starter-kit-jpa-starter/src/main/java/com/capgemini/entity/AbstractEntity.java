@@ -1,6 +1,6 @@
 package com.capgemini.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -20,18 +20,18 @@ public abstract class AbstractEntity {
 	@Version
 	private int modificationCounter;
 	@Column
-	private LocalDateTime created;
+	private Date created;
 	@Column
-	private LocalDateTime lastModified;
+	private Date lastModified;
 
 	@PrePersist
 	protected void onCreate() {
-		created = LocalDateTime.now();
+		created = new Date();
 	}
 
 	@PreUpdate
 	protected void onUpdate() {
-		lastModified = LocalDateTime.now();
+		lastModified = new Date();
 	}
 
 	public Long getId() {
@@ -50,19 +50,19 @@ public abstract class AbstractEntity {
 		this.modificationCounter = modificationCounter;
 	}
 
-	public LocalDateTime getCreated() {
+	public Date getCreated() {
 		return created;
 	}
 
-	public void setCreated(LocalDateTime created) {
+	public void setCreated(Date created) {
 		this.created = created;
 	}
 
-	public LocalDateTime getLastModified() {
+	public Date getLastModified() {
 		return lastModified;
 	}
 
-	public void setRowLastModified(LocalDateTime lastModified) {
+	public void setLastModified(Date lastModified) {
 		this.lastModified = lastModified;
 	}
 

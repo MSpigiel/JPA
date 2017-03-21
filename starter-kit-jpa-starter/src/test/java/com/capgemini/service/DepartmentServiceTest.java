@@ -3,6 +3,8 @@ package com.capgemini.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,33 +20,11 @@ import com.capgemini.entity.DepartmentEntity;
 @SpringBootTest
 public class DepartmentServiceTest {
 
-
 	@Autowired
 	private DepartmentService departmentService;
+	@PersistenceContext
+	private EntityManager em;
 	
-//	@Test
-//    public void testShouldFindDepartmentById() {
-//        // given
-//        final long DepartmentId = 1;
-//        // when
-//        DepartmentEntity DepartmentEntity = mSUT.findDepartmentById(DepartmentId);
-//        // then
-//        assertNotNull(DepartmentEntity);
-//        assertEquals("Pierwsza książka", DepartmentEntity.getTitle());
-//    }
-//
-//    @Test
-//    public void testShouldFindDepartmentsByTitle() {
-//        // given
-//        final String DepartmentTitle = "p";
-//        // when
-//        List<DepartmentEntity> DepartmentsEntity = mSUT.findDepartmentsByTitle(DepartmentTitle);
-//        // then
-//        assertNotNull(DepartmentsEntity);
-//        assertFalse(DepartmentsEntity.isEmpty());
-//        assertEquals("Pierwsza książka", DepartmentsEntity.get(0).getTitle());
-//    }
-//    
     @Test
     @Transactional
     public void testIfDepartmentIsUpdated() {
@@ -55,6 +35,7 @@ public class DepartmentServiceTest {
     	department.setDepartment_name("New department name");
     	department.setEmail("new@email.com");
     	DepartmentEntity updatedDepartment = departmentService.updateDepartment(department);
+    	em.flush();
     	// then
     	assertNotNull(updatedDepartment);
     	assertEquals(updatesCounter+1, updatedDepartment.getModificationCounter());
@@ -62,7 +43,7 @@ public class DepartmentServiceTest {
     
     @Test
     @Transactional
-    public void testShouldSaveDepartment() {
+    public void testShouldSaveNewDepartment() {
     	// given
     	int countBefore = departmentService.findAllDepartments().size();
     	System.out.println(countBefore);

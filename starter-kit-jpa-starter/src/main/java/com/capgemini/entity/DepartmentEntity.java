@@ -24,14 +24,6 @@ public class DepartmentEntity extends AbstractEntity implements Serializable {
 	public DepartmentEntity(){
 		
 	}
-//	public DepartmentEntity(Long department_id, String department_name) {
-//		this(department_name);
-//
-//	}
-//
-//	public DepartmentEntity(String department_name) {
-//		this.department_name = department_name;
-//	}
 
 	public Long getDepartment_id() {
 		return getId();

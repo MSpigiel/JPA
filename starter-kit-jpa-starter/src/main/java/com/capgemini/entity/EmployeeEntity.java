@@ -1,7 +1,7 @@
 package com.capgemini.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,14 +21,20 @@ public class EmployeeEntity extends AbstractEntity implements Serializable {
 	private String employee_lastName;
 	@Column(nullable = false, length = 11, unique = true)
 	private String socialSecurity;
+	@Column(nullable = true)
+	private Date birthDate;
+	@Column(nullable = true)
+	private String homeNumber;
 	@Column(nullable = false)
-	private LocalDateTime birthDate;
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="department_id")
+	private String mobileNumber;
+	@Column(nullable = false, unique = true)
+	private String email;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "department_id")
 	DepartmentEntity department;
-	
+
 	public EmployeeEntity() {
-		
+
 	}
 
 	public String getEmployee_name() {
@@ -55,11 +61,11 @@ public class EmployeeEntity extends AbstractEntity implements Serializable {
 		this.socialSecurity = socialSecurity;
 	}
 
-	public LocalDateTime getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDateTime birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -69,6 +75,30 @@ public class EmployeeEntity extends AbstractEntity implements Serializable {
 
 	public void setDepartment(DepartmentEntity department) {
 		this.department = department;
+	}
+
+	public String getHomeNumber() {
+		return homeNumber;
+	}
+
+	public void setHomeNumber(String homeNumber) {
+		this.homeNumber = homeNumber;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
