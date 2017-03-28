@@ -1,0 +1,4 @@
+INSERT INTO profile VALUES (null, 0, "about user1", "motto user1", "name1", "lastname1"), (null, 0, "about user2", "motto user2", "name2", "lastname2"), (null, 0, "about user3", "motto user3", "name3", "lastname3"), (null, 0, "about user4", "motto user4", "name4", "lastname4"), (null, 0, "about user5", "motto user5", "name5", "lastname5");
+INSERT INTO statistics VALUES (null, 0, 1, "NEWBIE", 0, 0, 2, 2, 80), (null, 0, 1, "NEWBIE", 0, 1, 2, 1, 40), (null, 0, 1, "NEWBIE", 0, 6, 6, 0, 0), (null, 0, 1, "NEWBIE", 0, 0, 4, 4, 160), (null, 0, 2, "BEGINNER", 0, 0, 8, 8, 400);
+INSERT INTO user VALUES (null, 0, "a@b.pl", "login1", "password1", 1, 1), (null, 0, "c@d.pl", "login2", "password2", 2, 2), (null, 0, "e@f.pl", "login3", "password3", 3, 3), (null, 0, "g@h.pl", "login4", "password4", 4, 4), (null, 0, "i@j.pl", "login5", "password5", 5, 5);
+INSERT INTO matches VALUES (null, 0, '2017-03-25', 1, 2), (null, 0, '2017-03-26', 1, 3), (null, 0, '2017-03-27', 2, 3);
