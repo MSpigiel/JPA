@@ -28,7 +28,7 @@ public class MatchMapper {
 		}
 		return null;
 	}
-	
+
 	public static List<MatchTO> map2TOs(List<MatchEntity> matchEntities) {
 		return matchEntities.stream().map(MatchMapper::map).collect(Collectors.toList());
 	}

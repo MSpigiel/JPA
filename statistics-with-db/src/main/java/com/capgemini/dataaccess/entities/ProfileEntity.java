@@ -9,17 +9,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PROFILE")
 public class ProfileEntity extends AbstractEntity implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
+	
 	@Column(nullable = true, length = 45)
 	private String name;
+	
 	@Column(nullable = true, length = 45)
 	private String surname;
+	
 	@Column(nullable = true, length = 45)
 	private String aboutMe;
+	
 	@Column(nullable = true, length = 45)
 	private String lifeMotto;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -35,7 +39,7 @@ public class ProfileEntity extends AbstractEntity implements Serializable {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
+
 	public String getAboutMe() {
 		return aboutMe;
 	}
@@ -51,12 +55,12 @@ public class ProfileEntity extends AbstractEntity implements Serializable {
 	public void setLifeMotto(String lifeMotto) {
 		this.lifeMotto = lifeMotto;
 	}
-	
-	public ProfileEntity(){
-	this.name = "";
-	this.surname = "";
-	this.aboutMe = "";
-	this.lifeMotto = "";
+
+	public ProfileEntity() {
+		this.name = "";
+		this.surname = "";
+		this.aboutMe = "";
+		this.lifeMotto = "";
 	}
-	
+
 }

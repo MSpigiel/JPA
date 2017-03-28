@@ -12,6 +12,7 @@ import com.capgemini.service.UserServicesFascade;
 import com.capgemini.service.to.MatchTO;
 import com.capgemini.service.to.UpdateTO;
 import com.capgemini.service.to.UserTO;
+
 @Service
 public class UserServicesFascadeImpl implements UserServicesFascade {
 
@@ -21,7 +22,7 @@ public class UserServicesFascadeImpl implements UserServicesFascade {
 	UserService userService;
 	@Autowired
 	MatchHistoryService matchService;
-	
+
 	@Override
 	public List<UserTO> showFullRanking() {
 		return rankingService.getFullRanking();
@@ -50,19 +51,19 @@ public class UserServicesFascadeImpl implements UserServicesFascade {
 	@Override
 	public UserTO updateUserData(UpdateTO data) {
 		UserTO user = userService.readUser(data.getId());
-		if(data.getAboutMe()!=null)
+		if (data.getAboutMe() != null)
 			user.getProfile().setAboutMe(data.getAboutMe());
-		if(data.getLifeMotto()!=null)
+		if (data.getLifeMotto() != null)
 			user.getProfile().setLifeMotto(data.getLifeMotto());
-		if(data.getName()!=null)
+		if (data.getName() != null)
 			user.getProfile().setName(data.getName());
-		if(data.getSurname()!=null)
+		if (data.getSurname() != null)
 			user.getProfile().setSurname(data.getSurname());
-		if(data.getEmail()!=null)
+		if (data.getEmail() != null)
 			user.setEmail(data.getEmail());
-		if(data.getLogin()!=null)
+		if (data.getLogin() != null)
 			user.setLogin(data.getLogin());
-		
+
 		return userService.updateUser(user);
 	}
 

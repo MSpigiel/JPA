@@ -32,7 +32,7 @@ public class ProfileMapper {
 		}
 		return null;
 	}
-	
+
 	public static List<ProfileTO> map2TOs(List<ProfileEntity> profileEntities) {
 		return profileEntities.stream().map(ProfileMapper::map).collect(Collectors.toList());
 	}

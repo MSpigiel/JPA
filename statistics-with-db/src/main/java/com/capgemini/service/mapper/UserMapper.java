@@ -11,7 +11,7 @@ import com.capgemini.service.to.StatisticsTO;
 import com.capgemini.service.to.UserTO;
 
 public class UserMapper {
-	
+
 	public static UserTO map(UserEntity userEntity) {
 		if (userEntity != null) {
 			UserTO userTO = new UserTO();
@@ -47,7 +47,7 @@ public class UserMapper {
 		}
 		return null;
 	}
-	
+
 	public static List<UserTO> map2TOs(List<UserEntity> userEntities) {
 		return userEntities.stream().map(UserMapper::map).collect(Collectors.toList());
 	}

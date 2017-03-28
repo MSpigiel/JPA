@@ -76,10 +76,10 @@ public class UserEntity extends AbstractEntity implements Serializable {
 		this.statistics = statistics;
 	}
 
-	public UserEntity(){
-		
+	public UserEntity() {
+
 	}
-	
+
 	public UserEntity(String login, String password, String email, ProfileEntity profile, StatisticsEntity statistics) {
 		this.login = login;
 		this.password = password;

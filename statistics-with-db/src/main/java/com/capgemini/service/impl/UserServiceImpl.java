@@ -11,7 +11,7 @@ import com.capgemini.service.mapper.UserMapper;
 import com.capgemini.service.to.UserTO;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public UserTO updateUser(UserTO user) {
 		return UserMapper.map(userDao.update(UserMapper.map(user)));
 	}
-	
+
 }

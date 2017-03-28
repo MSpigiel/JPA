@@ -18,15 +18,15 @@ public class MatchEntity extends AbstractEntity implements Serializable {
 
 	@Column(nullable = false)
 	private Date gameDate;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "winnerId", nullable = false)
 	private UserEntity winner;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "looserId", nullable = false)
 	private UserEntity looser;
 
-	
-	
 	public UserEntity getWinner() {
 		return winner;
 	}
@@ -50,12 +50,12 @@ public class MatchEntity extends AbstractEntity implements Serializable {
 	public void setGameDate(Date gameDate) {
 		this.gameDate = gameDate;
 	}
-	
-	public MatchEntity(){
-		
+
+	public MatchEntity() {
+
 	}
-	
-	public MatchEntity(UserEntity winner, UserEntity looser){
+
+	public MatchEntity(UserEntity winner, UserEntity looser) {
 		this.setWinner(winner);
 		this.setLooser(looser);
 		this.setGameDate(new Date());

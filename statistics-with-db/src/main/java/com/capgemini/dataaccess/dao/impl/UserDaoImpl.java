@@ -19,8 +19,7 @@ public class UserDaoImpl extends AbstractDao<UserEntity, Long> implements UserDa
 	@Override
 	public UserEntity findByEmail(String email) {
 		return em.createQuery("Select u from UserEntity u where u.email = :email", UserEntity.class)
-				.setParameter("email", email)
-				.getSingleResult();
+				.setParameter("email", email).getSingleResult();
 	}
 
 	@Override
@@ -33,8 +32,6 @@ public class UserDaoImpl extends AbstractDao<UserEntity, Long> implements UserDa
 	public List<UserEntity> generateRankingOnUserLevel(int level) {
 		return em.createQuery(
 				"Select u from UserEntity u WHERE u.statistics.currentLevel = :level ORDER BY u.statistics.points DESC",
-				UserEntity.class)
-				.setParameter("level", level)
-				.getResultList();
+				UserEntity.class).setParameter("level", level).getResultList();
 	}
 }

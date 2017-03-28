@@ -12,7 +12,7 @@ public class StatisticsTO {
 	private Long Points;
 	private Integer currentLevel;
 	private String levelName;
-	
+
 	public String getLevelName() {
 		return levelName;
 	}
@@ -76,8 +76,8 @@ public class StatisticsTO {
 	public void setMatchTotal(Integer matchTotal) {
 		this.matchTotal = matchTotal;
 	}
-	
-	public StatisticsTO(){
+
+	public StatisticsTO() {
 		this.setCurrentLevel(1);
 		this.setMatchDraw(0);
 		this.setMatchLost(0);

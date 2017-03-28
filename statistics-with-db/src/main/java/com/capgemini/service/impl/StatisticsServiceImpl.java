@@ -20,16 +20,16 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 	@Autowired
 	private StatisticsDao statsDao;
-	
+
 	@Override
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public void updateStatistics(UserTO winner, UserTO loser) {
 		HashMap<String, Long> pointsToBeAdded = countPoints(winner, loser);
 		StatisticsTO winnerStatisticsTO = winner.getStatistics();
 		winnerStatisticsTO = updateWinnerStatistics(winnerStatisticsTO, pointsToBeAdded.get("winnerPoints"));
 		StatisticsEntity winnerStatistics = StatisticsMapper.map(winnerStatisticsTO);
 		statsDao.update(winnerStatistics);
-		
+
 		StatisticsTO loserStatisticsTO = loser.getStatistics();
 		loserStatisticsTO = updateLoserStatistics(loserStatisticsTO, pointsToBeAdded.get("loserPoints"));
 		StatisticsEntity loserStatistics = StatisticsMapper.map(loserStatisticsTO);
@@ -38,18 +38,19 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 	private Double countProgressRatio(UserTO user) {
 		int index = user.getStatistics().getCurrentLevel() - 1;
-		Double progressPoints = Math.min(
-				(((double) user.getStatistics().getPoints() - (double) LevelRequirements.values()[index].getPointsRequired())
-						/ ((double) (LevelRequirements.values()[index + 1].getPointsRequired()
-								- LevelRequirements.values()[index].getPointsRequired()))),
+		Double progressPoints = Math.min((((double) user.getStatistics().getPoints()
+				- (double) LevelRequirements.values()[index].getPointsRequired())
+				/ ((double) (LevelRequirements.values()[index + 1].getPointsRequired()
+						- LevelRequirements.values()[index].getPointsRequired()))),
 				1.0);
-		Double progressGames = Math
-				.min((double) (user.getStatistics().getMatchTotal() - LevelRequirements.values()[index].getGamesPlayedRequired())
-						/ ((double) (LevelRequirements.values()[index + 1].getGamesPlayedRequired()
-								- LevelRequirements.values()[index].getGamesPlayedRequired())),
-						1.0);
+		Double progressGames = Math.min((double) (user.getStatistics().getMatchTotal()
+				- LevelRequirements.values()[index].getGamesPlayedRequired())
+				/ ((double) (LevelRequirements.values()[index + 1].getGamesPlayedRequired()
+						- LevelRequirements.values()[index].getGamesPlayedRequired())),
+				1.0);
 		Double progressWins = Math.min(
-				(double) ((double)user.getStatistics().getMatchWon()/(double)user.getStatistics().getMatchTotal() - LevelRequirements.values()[index].getPercentageWinsRequired())
+				(double) ((double) user.getStatistics().getMatchWon() / (double) user.getStatistics().getMatchTotal()
+						- LevelRequirements.values()[index].getPercentageWinsRequired())
 						/ ((double) (LevelRequirements.values()[index + 1].getPercentageWinsRequired()
 								- LevelRequirements.values()[index].getPercentageWinsRequired())),
 				1.0);
@@ -61,7 +62,8 @@ public class StatisticsServiceImpl implements StatisticsService {
 		HashMap<String, Long> resultMap = new HashMap<String, Long>();
 		int index = (loser.getStatistics().getCurrentLevel()) - winner.getStatistics().getCurrentLevel() + 9;
 
-		Long baseProfit = (long) (BasePoints.values()[index].getProfitBase() * winner.getStatistics().getCurrentLevel());
+		Long baseProfit = (long) (BasePoints.values()[index].getProfitBase()
+				* winner.getStatistics().getCurrentLevel());
 		Long baseLoss = (long) (BasePoints.values()[index].getLossBase() * loser.getStatistics().getCurrentLevel());
 		Double winnerProgress = 0.0;
 		Double loserProgress = 0.0;
@@ -92,7 +94,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 		StatisticsTO resultTO = statisticsTO;
 		resultTO.setMatchTotal(resultTO.getMatchTotal() + 1);
 		resultTO.setMatchLost(resultTO.getMatchLost() + 1);
-		if(resultTO.getPoints()-points < 0){
+		if (resultTO.getPoints() - points < 0) {
 			resultTO.setPoints(0L);
 		} else {
 			resultTO.setPoints(resultTO.getPoints() - points);

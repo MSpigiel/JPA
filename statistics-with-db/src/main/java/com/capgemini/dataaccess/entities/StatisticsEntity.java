@@ -14,33 +14,41 @@ import com.capgemini.LevelRequirements;
 public class StatisticsEntity extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Column(nullable = false)
 	private Integer matchWon;
+
 	@Column(nullable = false)
 	private Integer matchLost;
+
 	@Column(nullable = false)
 	private Integer matchDraw;
+
 	@Column(nullable = false)
 	private Integer matchTotal;
+
 	@Column(nullable = false)
 	private Long points;
+
 	@Column(nullable = false)
 	private Integer currentLevel;
+
 	@Column(nullable = false)
 	private String levelName;
 
 	@PostUpdate
-	private void updateLevel(){
-		if(currentLevel == 10)
+	private void updateLevel() {
+		if (currentLevel == 10)
 			return;
-		if(points >= LevelRequirements.values()[currentLevel].getPointsRequired() &&
-			matchTotal >= LevelRequirements.values()[currentLevel].getGamesPlayedRequired() &&
-			(double)(matchWon/matchTotal) >= LevelRequirements.values()[currentLevel].getPercentageWinsRequired()){
+		if (points >= LevelRequirements.values()[currentLevel].getPointsRequired()
+				&& matchTotal >= LevelRequirements.values()[currentLevel].getGamesPlayedRequired()
+				&& (double) (matchWon / matchTotal) >= LevelRequirements.values()[currentLevel]
+						.getPercentageWinsRequired()) {
 			this.levelName = LevelRequirements.values()[currentLevel].name();
 			currentLevel++;
 		}
 	}
-	
+
 	public Integer getMatchWon() {
 		return matchWon;
 	}
@@ -88,7 +96,7 @@ public class StatisticsEntity extends AbstractEntity implements Serializable {
 	public void setMatchTotal(Integer matchTotal) {
 		this.matchTotal = matchTotal;
 	}
-	
+
 	public String getLevelName() {
 		return levelName;
 	}
@@ -106,11 +114,11 @@ public class StatisticsEntity extends AbstractEntity implements Serializable {
 		this.setModificationCounter(0);
 		this.setPoints(0L);
 		this.setLevelName(LevelRequirements.NEWBIE.name());
-		
+
 	}
 
-	public StatisticsEntity(Integer currentLevel,Integer draw, Integer lost, Integer total,
-			Integer won, Long points, LevelRequirements levelName) {
+	public StatisticsEntity(Integer currentLevel, Integer draw, Integer lost, Integer total, Integer won, Long points,
+			LevelRequirements levelName) {
 		this.setCurrentLevel(currentLevel);
 		this.setMatchDraw(draw);
 		this.setMatchLost(lost);

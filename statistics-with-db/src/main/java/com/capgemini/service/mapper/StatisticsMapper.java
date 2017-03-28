@@ -38,7 +38,7 @@ public class StatisticsMapper {
 		}
 		return null;
 	}
-	
+
 	public static List<StatisticsTO> map2TOs(List<StatisticsEntity> statisticsEntities) {
 		return statisticsEntities.stream().map(StatisticsMapper::map).collect(Collectors.toList());
 	}

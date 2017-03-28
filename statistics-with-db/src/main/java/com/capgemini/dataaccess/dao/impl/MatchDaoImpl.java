@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.capgemini.dataaccess.dao.MatchDao;
 import com.capgemini.dataaccess.entities.MatchEntity;
+
 @Repository
 public class MatchDaoImpl extends AbstractDao<MatchEntity, Long> implements MatchDao {
 
@@ -17,8 +18,7 @@ public class MatchDaoImpl extends AbstractDao<MatchEntity, Long> implements Matc
 
 	@Override
 	public List<MatchEntity> getUserMatchHistory(Long id) {
-		return em.createQuery("Select m from MatchEntity m where m.winner.id = :id or m.looser.id = :id", MatchEntity.class)
-				.setParameter("id", id)
-				.getResultList();
+		return em.createQuery("Select m from MatchEntity m where m.winner.id = :id or m.looser.id = :id",
+				MatchEntity.class).setParameter("id", id).getResultList();
 	}
 }
