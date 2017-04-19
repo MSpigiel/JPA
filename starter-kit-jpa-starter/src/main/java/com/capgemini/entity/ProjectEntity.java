@@ -18,30 +18,35 @@ public class ProjectEntity extends AbstractEntity implements Serializable {
 	private String project_name;
 	@Column(nullable = false)
 	private boolean isInternal;
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="manager", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "manager", nullable = false)
 	EmployeeEntity manager;
-	public ProjectEntity(){
+
+	public ProjectEntity() {
 	}
+
 	public String getProject_name() {
 		return project_name;
 	}
+
 	public void setProject_name(String project_name) {
 		this.project_name = project_name;
 	}
+
 	public boolean isInternal() {
 		return isInternal;
 	}
+
 	public void setInternal(boolean isInternal) {
 		this.isInternal = isInternal;
 	}
+
 	public EmployeeEntity getManager() {
 		return manager;
 	}
+
 	public void setManager(EmployeeEntity manager) {
 		this.manager = manager;
 	}
-	
-	
 
 }

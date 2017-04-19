@@ -56,7 +56,7 @@ public class EmploeeServiceImpl implements EmployeeService {
 			return;
 		} else
 			employeeDao.delete(id);
-			assignmentService.deleteAllAssignmentsOfId(id);
+		assignmentService.deleteAllAssignmentsOfId(id);
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class EmploeeServiceImpl implements EmployeeService {
 	public List<EmployeeEntity> findAllEmployees() {
 		return employeeDao.findAll();
 	}
-	
+
 	private EmployeeEntity buildEmployee(String name, String lastName, String socialSecurity, String birthDate,
 			String homeNumber, String mobileNumber, String email, Long departmentId) throws ParseException {
 		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -124,7 +124,5 @@ public class EmploeeServiceImpl implements EmployeeService {
 		newEmployee.setDepartment(departmentDao.findOne(departmentId));
 		return newEmployee;
 	}
-
-	
 
 }

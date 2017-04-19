@@ -2,12 +2,14 @@ package com.capgemini.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,6 +34,8 @@ public class EmployeeEntity extends AbstractEntity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "department_id")
 	DepartmentEntity department;
+	@OneToMany(mappedBy = "employee")
+	List<AssignmentEntity> assignments;
 
 	public EmployeeEntity() {
 

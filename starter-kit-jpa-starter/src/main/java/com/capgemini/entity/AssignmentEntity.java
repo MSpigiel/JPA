@@ -19,7 +19,7 @@ public class AssignmentEntity extends AbstractEntity implements Serializable {
 	private Date start_date;
 	@Column(nullable = true)
 	private Date end_date;
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="employee_id", nullable = false)
 	EmployeeEntity employee;
 	@ManyToOne(fetch=FetchType.LAZY)
